@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Entities.Base;
 using System;
+using System.Collections.Generic;
 
 namespace DataAccessLayer.Entities
 {
@@ -10,5 +11,6 @@ namespace DataAccessLayer.Entities
         public DateTime? DateBirth { get; set; }
         public DateTime? DateDeath { get; set; }
         
+        public List<AuthorInPrintingEdition> AuthorInPrintingEditions { get; set; }
     }
 }

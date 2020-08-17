@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Entities.Base;
 using DataAccessLayer.Entities.Enum;
+using System.Collections.Generic;
 
 namespace DataAccessLayer.Entities
 {
@@ -11,7 +12,9 @@ namespace DataAccessLayer.Entities
         public string Type { get; set; }
         public Status Status { get; set; }
         public Currency Currency { get; set; }
-        public OrderItem OtderItem { get; set; }
+        public OrderItem OrderItem { get; set; }
+
+        public List<AuthorInPrintingEdition> AuthorInPrintingEditions { get; set; }
 
     }
 }

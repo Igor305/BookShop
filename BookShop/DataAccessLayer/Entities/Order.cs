@@ -11,6 +11,6 @@ namespace DataAccessLayer.Entities
         public string Description { get; set; }
         public Guid PaymentId { get; set; }
         public Payment Payment { get; set; }
-        public List<OrderItem> OrderItem { get; set; }
+        public OrderItem OrderItem { get; set; }
     }
 }

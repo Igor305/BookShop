@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace DataAccessLayer.Entities
 {
-    public class Role : IdentityRole<Guid>
+    public class Role
     {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
         public List<UserInRole> UserInRoles { get; set; }
     }
 }

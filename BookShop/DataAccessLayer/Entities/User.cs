@@ -1,18 +1,15 @@
-﻿
-using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace DataAccessLayer.Entities
 {
-    public class User : IdentityUser<Guid>
+    public class User
     {
+        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime CreateDateTime { get; set; }
-        public DateTime UpdateDateTime { get; set; }
-        public bool IsDeleted { get; set; }
-        public Order Order { get; set; }
+
         public List<UserInRole> UserInRoles { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }
