@@ -8,4 +8,9 @@
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Author\" />
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 </Project>
