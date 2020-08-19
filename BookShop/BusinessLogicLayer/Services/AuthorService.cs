@@ -59,7 +59,7 @@ namespace BusinessLogicLayer.Services
 
         public async Task<AuthorResponseModel> FindName(string FirstName, string LastName)
         {
-            Author author = await _authorRepository.GetName(FirstName, LastName);
+            Author author = await _authorRepository.GetByName(FirstName, LastName);
 
             AuthorModel authorModel = _mapper.Map<Author, AuthorModel>(author);
 
@@ -105,8 +105,8 @@ namespace BusinessLogicLayer.Services
         {
             Author author = await _authorRepository.GetById(Id);
 
-            author.UpdateDateTime = DateTime.Now;
             author.IsDeleted = true;
+            author.UpdateDateTime = DateTime.Now;
 
             await _authorRepository.Update(author);
 

@@ -9,7 +9,7 @@ namespace DataAccessLayer.Repositories.Interfaces
     {
         Task<List<Author>> GetAll();
         Task<List<Author>> GetAllWithoutIsDeleted();
-        Task<Author> GetName(string FirstName, string LastName);
+        Task<Author> GetByName(string FirstName, string LastName);
         IQueryable<Author> Pagination();
     }
 }

@@ -17,25 +17,26 @@ namespace DataAccessLayer.Repositories.EFRepositories
 
         public async Task<List<Author>> GetAll()
         {
-            List<Author> all = await _applicationContext.Authors.ToListAsync();
+            List<Author> authors = await _applicationContext.Authors.ToListAsync();
 
-            return all;
+            return authors;
         }
 
         public async Task<List<Author>> GetAllWithoutIsDeleted()
         {
-            List<Author> all = await _applicationContext.Authors.ToListAsync();
+            List<Author> authors = await _applicationContext.Authors.ToListAsync();
 
-            return all;
+            return authors;
         }
 
-        public async Task<Author> GetName(string FirstName, string LastName)
+        public async Task<Author> GetByName(string FirstName, string LastName)
         {
             IQueryable<Author> authors = _applicationContext.Authors.Where(x => x.LastName == LastName);
             Author author = await authors.FirstOrDefaultAsync(x => x.FirstName == FirstName);
 
             return author;
         }
+
         public IQueryable<Author> Pagination()
         {
             IQueryable<Author> authors = _applicationContext.Authors.Include(x => x.AuthorInPrintingEditions);

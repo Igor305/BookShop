@@ -30,6 +30,8 @@ namespace PresentationLayer
             services.AddDbContext<ApplicationContext>(opts => opts.UseSqlServer(connectionString));
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IAuthorService, AuthorService>();
+            services.AddScoped<IPrintingEditionRepository, PrintingEditionRepository>();
+            services.AddScoped<IPrintingEditionService, PrintingEditionService>();
             services.AddControllers();
             MapperConfiguration mapperconfig = new MapperConfiguration(cfg =>
             {
