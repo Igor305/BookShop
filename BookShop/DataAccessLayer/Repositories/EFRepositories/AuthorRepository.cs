@@ -22,7 +22,7 @@ namespace DataAccessLayer.Repositories.EFRepositories
             return all;
         }
 
-        public async Task<List<Author>> GetAllWithoutRemove()
+        public async Task<List<Author>> GetAllWithoutIsDeleted()
         {
             List<Author> all = await _applicationContext.Authors.ToListAsync();
 

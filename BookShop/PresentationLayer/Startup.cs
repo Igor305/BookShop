@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DataAccessLayer.AppContext;
@@ -10,9 +9,9 @@ using DataAccessLayer.Repositories.Interfaces;
 using DataAccessLayer.Repositories.EFRepositories;
 using BusinessLogicLayer.Services.Interfaces;
 using BusinessLogicLayer.Services;
-using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using BusinessLogicLayer.AutoMapper;
+using Microsoft.OpenApi.Models;
 
 namespace PresentationLayer
 {
@@ -38,6 +37,10 @@ namespace PresentationLayer
             });
             IMapper mapper = mapperconfig.CreateMapper();
             services.AddSingleton(mapper);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My Api", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -46,6 +49,12 @@ namespace PresentationLayer
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseRouting();
             app.UseEndpoints(endpoints =>

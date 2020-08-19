@@ -8,7 +8,7 @@ namespace DataAccessLayer.Repositories.Interfaces
     public interface IAuthorRepository : IGenericRepository<Author>
     {
         Task<List<Author>> GetAll();
-        Task<List<Author>> GetAllWithoutRemove();
+        Task<List<Author>> GetAllWithoutIsDeleted();
         Task<Author> GetName(string FirstName, string LastName);
         IQueryable<Author> Pagination();
     }
