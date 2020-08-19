@@ -4,13 +4,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DataAccessLayer.AppContext;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using DataAccessLayer.Repositories.Interfaces;
+using DataAccessLayer.Repositories.EFRepositories;
+using BusinessLogicLayer.Services.Interfaces;
+using BusinessLogicLayer.Services;
+using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using BusinessLogicLayer.AutoMapper;
 
 namespace PresentationLayer
 {
@@ -25,11 +27,17 @@ namespace PresentationLayer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            var connectionString = Configuration["ConnectionStrings:BookShopDB"];
+            string connectionString = Configuration["ConnectionStrings:BookShopDB"];
             services.AddDbContext<ApplicationContext>(opts => opts.UseSqlServer(connectionString));
-            //  services.AddScoped<IUserStore<IdentityUser>, UserOnlyStore<IdentityUser, IdentityDbContext>>();
-
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IAuthorService, AuthorService>();
+            services.AddControllers();
+            MapperConfiguration mapperconfig = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MapperProfile>();
+            });
+            IMapper mapper = mapperconfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -40,13 +48,9 @@ namespace PresentationLayer
             }
 
             app.UseRouting();
-
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }
