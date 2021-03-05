@@ -5860,23 +5860,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\igort\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\i.talavyria\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Clown\\Git\\BookShop\\BookShop\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "projectUniqueName": "D:\\BookShop\\BookShop\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
       "projectName": "BusinessLogicLayer",
-      "projectPath": "C:\\Clown\\Git\\BookShop\\BookShop\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-      "packagesPath": "C:\\Users\\igort\\.nuget\\packages\\",
-      "outputPath": "C:\\Clown\\Git\\BookShop\\BookShop\\BusinessLogicLayer\\obj\\",
+      "projectPath": "D:\\BookShop\\BookShop\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "packagesPath": "C:\\Users\\i.talavyria\\.nuget\\packages\\",
+      "outputPath": "D:\\BookShop\\BookShop\\BusinessLogicLayer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\igort\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\i.talavyria\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5888,9 +5884,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Clown\\Git\\BookShop\\BookShop\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Clown\\Git\\BookShop\\BookShop\\DataAccessLayer\\DataAccessLayer.csproj"
+            "D:\\BookShop\\BookShop\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "D:\\BookShop\\BookShop\\DataAccessLayer\\DataAccessLayer.csproj"
             }
           }
         }
@@ -5903,6 +5900,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
@@ -5924,7 +5922,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
